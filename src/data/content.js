@@ -1,14 +1,20 @@
 export const profile = {
   name: 'Kevin Thomas',
-  headline: "Data Analytics Master's Student | Software Engineer | Cloud & AI Enthusiast",
-  intro:
-    "I'm a Data Analytics master's student at Universität Hildesheim with professional experience building Python automation tools and data-driven internal platforms at Qualcomm. Currently exploring Cloud Engineering, DevOps, and AI/ML systems.",
   location: 'Hildesheim, Germany',
   availability: 'Open to Werkstudent opportunities',
-  email: 'your.email@example.com', // TODO: replace
+  email: 'kevindipu17@gmail.com',
   github: 'https://github.com/Kevindipu',
-  linkedin: 'https://www.linkedin.com/in/your-profile/', // TODO: replace
-  cv: 'Kevin_Thomas_CV.pdf', // file lives in /public
+  linkedin: 'https://www.linkedin.com/in/kevin-thomas-dipu-a923121b7/', // TODO: replace
+  cv: 'Kevin_CV.pdf', // file lives in /public
+}
+
+export const hero = {
+  greeting: "Hi, I'm Kevin.",
+  tagline: 'I turn coffee into code and occasionally into production incidents.',
+  subtitle:
+    "Data Analytics Master's student | Former Qualcomm Engineer | Building things with Python, Cloud, DevOps & AI.",
+  playful:
+    "Currently pursuing a Master's degree, surviving German bureaucracy, and trying to convince Kubernetes to cooperate.",
 }
 
 export const nav = [
@@ -20,23 +26,44 @@ export const nav = [
   { label: 'Contact', href: '#contact' },
 ]
 
+export const glance = [
+  { label: 'Now', value: 'M.Sc. Data Analytics, Universität Hildesheim' },
+  { label: 'Before', value: 'IT Engineer at Qualcomm, about 2 years' },
+  { label: 'Looking for', value: 'Werkstudent roles in DevOps / Cloud (up to 20 h per week)' },
+]
+
 export const about = [
-  "I'm pursuing an M.Sc. in Data Analytics at Universität Hildesheim, building on a B.E. in Computer Science and Engineering and nearly two years as an IT Engineer at Qualcomm.",
-  'At Qualcomm I worked with Python automation, Linux, Git, Jenkins, and Splunk, building internal tooling that removed manual work and improved operational visibility.',
-  "Outside of work I build hands-on projects with AWS, Docker, Kubernetes, and Terraform. I'm interested in scalable infrastructure, automation systems, and practical AI applications.",
+  'I studied Computer Science and Engineering in Mysuru, then joined Qualcomm in Bengaluru, first as an engineering intern and then as an IT Engineer.',
+  "I spent two years at Qualcomm automating things that humans probably shouldn't have been doing manually in the first place: a Python CLI for developer tooling, CMDB monitoring, license tracking, and Splunk dashboards.",
+  'Then I moved to Germany for an M.Sc. in Data Analytics at Universität Hildesheim. Now I debug both code and German grammar, with better results on the code.',
+  'On the side I build cloud and DevOps projects with AWS, Docker, Kubernetes, and Terraform. I like systems that keep working when nobody is watching them.',
 ]
 
 export const experience = {
   company: 'Qualcomm',
-  role: 'IT Engineer',
   location: 'Bengaluru, India',
-  period: 'July 2024 – March 2026',
-  bullets: [
-    'Developed QPI, a Python CLI tool automating semiconductor IP management workflows across Perforce, IPLM, Swarm, and Git.',
-    'Reduced workspace setup time from 60 minutes to 15 minutes.',
-    'Automated CMDB mapping across 500+ servers and 14 service portfolios.',
-    'Built Splunk dashboards and monitoring solutions to improve operational visibility.',
-    'Developed license monitoring automation covering 50+ users across four environments.',
+  roles: [
+    {
+      title: 'IT Engineer',
+      period: 'July 2024 – March 2026',
+      note: 'Where I learned that "temporary script" is a polite fiction.',
+      bullets: [
+        'Took ownership of QPI, a 30+ command Python CLI: added 4 commands, optimized 7 existing ones, and introduced Git branching workflows for features and hotfixes.',
+        'Supported QPI adoption across 4 engineering teams and cut developer workspace setup from 60 to 15 minutes.',
+        'Replaced manual IP management reporting with a daily Python pipeline covering 15 active development IPs (MongoDB and Splunk dashboards), saving 8+ hours of manual effort per week.',
+        'Built Python-based CMDB monitoring across 500+ servers, automating infrastructure validation and owner notifications through Splunk dashboards. Data accuracy improved by 15% over the previous baseline.',
+        'Received the QSparkler Award for delivering QPI ahead of schedule.',
+      ],
+    },
+    {
+      title: 'Interim Engineering Intern',
+      period: 'January 2024 – July 2024',
+      note: 'Counting licenses so nobody else had to.',
+      bullets: [
+        'Built a Python reporting pipeline and MongoDB-backed dashboard for 100+ chip IP records, replacing recurring manual reporting.',
+        'Developed license monitoring across 50+ users and 4 environments. It identified inactive accounts and enabled reclamation of 20% of software license capacity through an approval workflow.',
+      ],
+    },
   ],
 }
 
@@ -44,7 +71,7 @@ export const education = [
   {
     degree: 'M.Sc. Data Analytics',
     school: 'Universität Hildesheim, Germany',
-    period: 'April 2026 – Present',
+    period: 'April 2026 – April 2028',
   },
   {
     degree: 'B.E. Computer Science and Engineering',
@@ -53,43 +80,72 @@ export const education = [
   },
 ]
 
+// `learned` lines are drafts: edit them so they match what you actually took away.
 export const projects = [
   {
-    title: 'Cloud-Native URL Shortener',
-    description:
-      'Designed and deployed a containerized URL shortening service using FastAPI and PostgreSQL. Provisioned AWS infrastructure using Terraform and implemented CI/CD using GitHub Actions.',
-    highlight:
-      'Infrastructure as Code, automated deployments, containerization, and cloud architecture.',
-    tech: ['Python', 'FastAPI', 'Docker', 'AWS', 'Terraform', 'PostgreSQL', 'GitHub Actions', 'EC2', 'ALB'],
+    title: 'URL Shortener on AWS',
+    tagline: 'Because nobody wants to type a 200-character URL.',
+    problem:
+      'Long URLs are awkward to share. This service turns them into short links, and the interesting part is running it reliably.',
+    built:
+      'A FastAPI service on two EC2 instances in separate Availability Zones behind an Application Load Balancer, with RDS PostgreSQL for shared storage. Terraform provisions the VPC, EC2, ALB, RDS, ECR, IAM, and CloudWatch resources. GitHub Actions builds the Docker image, pushes it to ECR, deploys to both instances, and verifies application health.',
+    learned:
+      'Redundancy is only real once you have killed an instance and watched traffic fail over. I tested exactly that.',
+    tech: ['Python', 'FastAPI', 'Docker', 'Terraform', 'GitHub Actions', 'AWS', 'EC2', 'ALB', 'RDS', 'ECR'],
     github: 'https://github.com/Kevindipu/URLShortner',
-    details: null, // optional: URL to a write-up
+    live: null, // TODO: add a demo URL if you want one public
+    status: null,
   },
   {
-    title: 'MLOps – Intent Classification',
-    description:
-      'Developed an NLP-based intent classification application using a machine learning pipeline. Exploring production-oriented deployment and cloud infrastructure automation.',
-    tech: ['Python', 'Scikit-learn', 'NLP', 'Docker', 'AWS', 'Terraform'],
-    github: 'https://github.com/Kevindipu/MLOps',
-    details: null,
+    title: 'Churn Prediction MLOps Pipeline',
+    tagline: 'Teaching machines to make decisions. Hopefully better than mine.',
+    problem:
+      'A trained model is useless until something can call it. This project serves one churn model in two ways to compare them.',
+    built:
+      'A Random Forest churn classifier, with the same serialized model served through FastAPI and through KServe on Kubernetes. KServe pulls model artifacts from AWS S3 using a Kubernetes Service Account and IAM permissions, with Horizontal Pod Autoscaling for inference. Datasets are versioned with DVC and an S3 remote, and dependencies are managed with uv.',
+    learned:
+      'Serving a model from a plain API and serving it natively on Kubernetes are different jobs, and permissions are where most of the debugging happens.',
+    tech: ['Python', 'Scikit-learn', 'FastAPI', 'Kubernetes', 'KServe', 'AWS S3', 'DVC'],
+    github: 'https://github.com/Kevindipu/Churn_Model', // TODO: confirm this is the churn repo
+    live: null,
+    status: null,
   },
   {
-    title: 'Deepfake Detection System',
-    description:
-      'Contributed to a multimodal deepfake detection platform. Personally developed the text detection component using fine-tuned BERT and lexical feature extraction, and implemented Flask API endpoints integrating text, image, and audio prediction models.',
-    tech: ['Python', 'BERT', 'NLP', 'Flask', 'Deep Learning', 'React'],
+    title: 'Multimodal Deepfake Content Detection',
+    tagline: "Teaching software to spot what humans increasingly can't.",
+    problem: 'Detects manipulated content across text, image, and audio in one platform.',
+    built:
+      'A four-member team project. I fine-tuned BERT and added lexical features (MAAS and Yule\'s K) for text detection, reaching 84.3% test accuracy. I also wrote the Flask REST endpoints that combine the text, image, and audio models, with file validation and standardized prediction responses. My teammates\' image and audio models reached 93.7% and 95.1%.',
+    learned:
+      'Fine-tuning a model is the easy part. Putting three models behind one consistent API is where the time goes.',
+    tech: ['Python', 'Flask', 'BERT', 'VGG19', 'VGGish', 'NLP', 'Computer Vision'],
     github: 'https://github.com/Kevindipu/Deepfake_detection_backend',
-    details: null,
-  },
+    live: null,
+    status: null,
+  }
 ]
 
-export const skills = [
-  { category: 'Programming & Development', items: ['Python', 'SQL', 'FastAPI', 'Flask', 'Git'] },
-  {
-    category: 'Cloud & DevOps',
-    items: ['AWS', 'Docker', 'Kubernetes', 'Terraform', 'GitHub Actions', 'Linux', 'Jenkins'],
-  },
-  {
-    category: 'Data & AI',
-    items: ['PyTorch', 'Machine Learning', 'Deep Learning', 'NLP', 'Splunk'],
-  },
-]
+export const skills = {
+  heading: "Things I know, things I'm learning, and things I Google regularly.",
+  groups: [
+    { category: 'Programming & Backend', items: ['Python', 'SQL', 'Bash', 'C++', 'FastAPI', 'Flask'] },
+    {
+      category: 'Cloud & DevOps',
+      items: ['AWS', 'Terraform', 'Docker', 'Kubernetes', 'KServe', 'GitHub Actions', 'Linux'],
+    },
+    {
+      category: 'Data & AI/ML',
+      items: ['PyTorch', 'TensorFlow', 'Scikit-learn', 'BERT', 'NLP', 'Computer Vision', 'DVC'],
+    },
+    {
+      category: 'Tools & Platforms',
+      items: ['Git', 'PostgreSQL', 'MongoDB', 'Splunk', 'Jira', 'ServiceNow', 'Confluence'],
+    },
+  ],
+}
+
+export const contact = {
+  heading: 'Have an interesting problem? I have a suspicious number of browser tabs open.',
+  subheading:
+    'Open to Werkstudent opportunities, interesting engineering projects, and conversations about technology.',
+}
