@@ -2,9 +2,7 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
-// The deploy workflow sets VITE_BASE to "/<repo-name>/".
-// Locally (and for a <username>.github.io repo) it falls back to "/".
 export default defineConfig({
-  base: process.env.VITE_BASE || '/',
+  base: '/Portfolio/',
   plugins: [react(), tailwindcss()],
 })
