@@ -1,6 +1,6 @@
-import { Github, Linkedin, Mail } from 'lucide-react'
+import { Download, Github, Linkedin, Mail } from 'lucide-react'
 import Section from './Section'
-import { profile } from '../data/content'
+import { contact, profile } from '../data/content'
 
 const link =
   'inline-flex items-center gap-2 text-sm text-muted transition-colors hover:text-accent'
@@ -8,11 +8,10 @@ const link =
 export default function Contact() {
   return (
     <Section id="contact">
-      <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">Let's connect.</h2>
-      <p className="mt-4 max-w-xl leading-relaxed text-muted">
-        I'm always interested in connecting with engineers, recruiters, and people working on
-        interesting technology.
-      </p>
+      <h2 className="max-w-2xl text-2xl font-semibold tracking-tight sm:text-3xl">
+        {contact.heading}
+      </h2>
+      <p className="mt-4 max-w-xl leading-relaxed text-muted">{contact.subheading}</p>
 
       <a
         href={`mailto:${profile.email}`}
@@ -30,6 +29,9 @@ export default function Contact() {
         </a>
         <a href={profile.github} target="_blank" rel="noopener noreferrer" className={link}>
           <Github size={16} /> GitHub
+        </a>
+        <a href={`${import.meta.env.BASE_URL}${profile.cv}`} download className={link}>
+          <Download size={16} /> Resume
         </a>
       </div>
     </Section>

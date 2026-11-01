@@ -3,9 +3,9 @@ import { skills } from '../data/content'
 
 export default function Skills() {
   return (
-    <Section id="skills" title="Technical Skills">
+    <Section id="skills" title="Skills" subtitle={skills.heading}>
       <div className="space-y-8">
-        {skills.map((group) => (
+        {skills.groups.map((group) => (
           <div key={group.category} className="grid gap-3 sm:grid-cols-[14rem_1fr]">
             <h3 className="text-sm font-semibold">{group.category}</h3>
             <ul className="flex flex-wrap gap-2">

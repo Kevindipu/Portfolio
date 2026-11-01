@@ -1,11 +1,12 @@
 export const profile = {
-  name: 'Kevin Thomas',
+  name: 'Kevin Thomas Dipu',
   location: 'Hildesheim, Germany',
   availability: 'Open to Werkstudent opportunities',
   email: 'kevindipu17@gmail.com',
   github: 'https://github.com/Kevindipu',
   linkedin: 'https://www.linkedin.com/in/kevin-thomas-dipu-a923121b7/', // TODO: replace
   cv: 'Kevin_CV.pdf', // file lives in /public
+  photo: 'profile.jpg'
 }
 
 export const hero = {
