@@ -19,7 +19,7 @@ export default function App() {
         <Contact />
       </main>
       <footer className="border-t border-line py-8 text-center text-xs text-muted">
-        © {new Date().getFullYear()} Kevin Thomas
+        © {new Date().getFullYear()} Kevin Thomas Dipu
       </footer>
     </>
   )
